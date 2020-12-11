@@ -9,9 +9,21 @@ app_ui <- function(request) {
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # Your application UI logic 
-    fluidPage(
-      h1("tableauproto")
-    )
+    tableau_de_bord(
+      dash_title(title = "Biodiversity Distribution Index"), 
+      dash_sidebar(
+        badge(),
+        sliderInput("obs",
+                    "Nombre d'observations:",
+                    min = 0,
+                    max = 1000,
+                    value = 500),
+        textInput("name", "What's your name?")
+      ),
+      dash_tabs(
+        tab_map()
+      )
+    ) 
   )
 }
 
