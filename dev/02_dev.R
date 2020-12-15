@@ -20,8 +20,11 @@ usethis::use_package( "mapselector", "suggests")
 
 ## Add modules ----
 ## Create a module infrastructure in R/
-golem::add_module( name = "name_of_module1" ) # Name of the module
-golem::add_module( name = "name_of_module2" ) # Name of the module
+golem::add_module( name = "tuto_modal" ) # Name of the module
+golem::add_module( name = "tuto_modal2" ) # Name of the module
+golem::add_module( name = "tuto_modal3" ) # Name of the module
+golem::add_module( name = "sel_group" ) # Name of the module
+golem::add_module( name = "bdi" ) # Name of the module
 
 ## Add helper functions ----
 ## Creates ftc_* and utils_*
@@ -45,7 +48,7 @@ usethis::use_test( "app" )
 # Documentation
 
 ## Vignette ----
-usethis::use_vignette("tableauproto")
+usethis::use_vignette("tableaubdi")
 devtools::build_vignettes()
 
 ## Code Coverage----

@@ -9,19 +9,13 @@ app_ui <- function(request) {
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # Your application UI logic 
-    tableau_de_bord(
-      dash_title(title = "Biodiversity Distribution Index"), 
-      dash_sidebar(
-        badge(),
-        sliderInput("obs",
-                    "Nombre d'observations:",
-                    min = 0,
-                    max = 1000,
-                    value = 500),
-        textInput("name", "What's your name?")
+    mapselector::tableau_de_bord(
+      mapselector::dash_title(title = "Biodiversity Distribution Index"), 
+      mapselector::dash_sidebar(
+        mapselector::badge()
       ),
-      dash_tabs(
-        tab_map()
+      mapselector::dash_tabs(
+        mapselector::tab_map()
       )
     ) 
   )
@@ -45,7 +39,7 @@ golem_add_external_resources <- function(){
     favicon(ext = 'png'),
     bundle_resources(
       path = app_sys('app/www'),
-      app_title = 'tableauproto'
+      app_title = 'tableaubdi'
     )
     # Add here other external resources
     # for example, you can add shinyalert::useShinyalert() 
