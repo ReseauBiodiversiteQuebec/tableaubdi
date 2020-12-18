@@ -23,7 +23,8 @@ usethis::use_package( "mapselector", "suggests")
 golem::add_module( name = "tuto_modal" ) # Name of the module
 golem::add_module( name = "tuto_modal2" ) # Name of the module
 golem::add_module( name = "tuto_modal3" ) # Name of the module
-golem::add_module( name = "sel_group" ) # Name of the module
+golem::add_module( name = "scale" ) # Name of the module
+golem::add_module( name = "species" ) # Name of the module
 golem::add_module( name = "bdi" ) # Name of the module
 
 ## Add helper functions ----

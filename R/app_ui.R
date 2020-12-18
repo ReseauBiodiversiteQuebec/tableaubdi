@@ -12,7 +12,18 @@ app_ui <- function(request) {
     mapselector::tableau_de_bord(
       mapselector::dash_title(title = "Biodiversity Distribution Index"), 
       mapselector::dash_sidebar(
-        mapselector::badge()
+        mapselector::badge(),
+        selectInput("sel_scale",
+          "Choisir l'échelle spatiale",
+            choices = list(
+              "Tout le Québec" = "all",
+                "Provinces Naturelles" = "pro_nat")
+        ),
+        selectInput("species", 
+          "Espèces", 
+            setNames(species$taxa, species$sp_fr),
+              selected = "all"),
+        actionButton("show_index", "Afficher l'indice")
       ),
       mapselector::dash_tabs(
         mapselector::tab_map()

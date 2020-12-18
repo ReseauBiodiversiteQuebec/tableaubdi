@@ -10,6 +10,7 @@ app_server <- function( input, output, session ) {
   # Render empty map to show in background
   output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_empty())
 
+
   # Small intro to dahsboard
   mod_tuto_modal_server("tuto_modal_ui_1")
 
@@ -21,17 +22,33 @@ app_server <- function( input, output, session ) {
     mod_tuto_modal3_server("tuto_modal3_ui_1")
   })
 
+
   # Choices of scales at which we want to visualize the index
   observeEvent(input$pro_nat, {
     removeModal()
-    output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_map())
+    updateSelectInput(session, "sel_scale",
+      selected = "pro_nat")
   })
 
   observeEvent(input$qc, {
     removeModal()
-    output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_sdm(sdm=prob_occ[["all"]]))
+    output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_sdm(sdm=prob_occ[[input$species]]))
   })
 
+
   # Sidebar menu choices of scales
+
+  observeEvent(input$sel_scale, {
+    updateSelectInput(session, "species",
+      selected = "all")
+    if(input$sel_scale == "all") {
+      output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_sdm(sdm=prob_occ[["all"]]))
+    } else {
+      output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_map())
+    }
+  }, ignoreInit = TRUE)
+
+
+  # Show plot in modal
 
 }
