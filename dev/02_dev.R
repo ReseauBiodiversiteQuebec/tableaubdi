@@ -25,7 +25,7 @@ golem::add_module( name = "tuto_modal2" ) # Name of the module
 golem::add_module( name = "tuto_modal3" ) # Name of the module
 golem::add_module( name = "scale" ) # Name of the module
 golem::add_module( name = "species" ) # Name of the module
-golem::add_module( name = "bdi" ) # Name of the module
+golem::add_module( name = "bdi_time_series" ) # Name of the module
 
 ## Add helper functions ----
 ## Creates ftc_* and utils_*

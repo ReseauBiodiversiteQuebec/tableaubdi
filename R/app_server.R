@@ -3,6 +3,7 @@
 #' @param input,output,session Internal parameters for {shiny}. 
 #'     DO NOT REMOVE.
 #' @import shiny
+#' @import ggplot2
 #' @noRd
 app_server <- function( input, output, session ) {
   # Your application server logic 
@@ -64,14 +65,19 @@ app_server <- function( input, output, session ) {
 
 
   # Sidebar menu choices of species
-
-  #observeEvent(input$species, {
-  #  if(input$sel_scale == "all") {
-  #    output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_sdm(sdm=prob_occ[[input$species]]))
-  #  }
-  #}, ignoreInit = TRUE)
-
+  observeEvent(input$species, {
+    spchoice <- reactive({toString(input$species)})
+    mod_bdi_time_series_server("bdi_time_series_ui_1", spchoice)
+  })
 
   # Show plot in modal
+  observeEvent(input$show_index, {
+    showModal(
+      modalDialog(
+        mod_bdi_time_series_ui("bdi_time_series_ui_1"),
+        title = "Indice Distribution de Biodiversité"
+      )
+    )
+  })
 
 }
