@@ -12,7 +12,7 @@ app_server <- function( input, output, session ) {
   output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_empty())
 
 
-  # Small intro to dahsboard
+  # Small intro to dashboard
   mod_tuto_modal_server("tuto_modal_ui_1")
 
   observeEvent(input$pass, {
@@ -47,11 +47,11 @@ app_server <- function( input, output, session ) {
     removeModal()
     spchoice <- reactive({toString(input$species)})
     output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_sdm(sdm=prob_occ[[spchoice()]]))
+    mod_bdi_time_series_server("bdi_time_series_ui_1", spchoice)
   })
 
 
   # Sidebar menu choices of scales
-
   observeEvent(input$sel_scale, {
     updateSelectInput(session, "species",
       selected = "all")
@@ -69,6 +69,7 @@ app_server <- function( input, output, session ) {
     spchoice <- reactive({toString(input$species)})
     mod_bdi_time_series_server("bdi_time_series_ui_1", spchoice)
   })
+
 
   # Show plot in modal
   observeEvent(input$show_index, {
