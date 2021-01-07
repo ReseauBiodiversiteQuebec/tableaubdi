@@ -25,9 +25,13 @@ mod_tuto_modal3_server <- function(id){
       modalDialog(
         div("À quelle échelle spatiale vous voulez visualiser l'indice?"),
         actionButton("qc", "Tout le Québec"),
-        actionButton("admin", "Par région administrative"),
-        actionButton("dom_bio", "Par domaines biogéographiques"),
-        actionButton("pro_nat", "Par provinces naturelles")
+        actionButton("pro_nat", "Par provinces naturelles"),
+        easyClose=FALSE,
+        footer = span(
+          actionButton("backTo2", "Précédent"),
+          style = "position:relative; float:left;"
+        ),
+        title = "Sélection de l'échelle spatiale"
       )
     )
 

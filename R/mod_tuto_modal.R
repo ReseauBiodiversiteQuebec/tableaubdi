@@ -22,8 +22,16 @@ mod_tuto_modal_server <- function(id){
     ns <- session$ns
     showModal(
       modalDialog(
-        div("L'indice de distribution de biodiversité est ..."),
-        actionButton("next1", "Suivante")
+        div("L'indice de distribution de biodiversité est un indicateur qui permet de suivre les changements de biodiversité à l'échelle du Québec en utilisant les changements d'aire de répartition des espèces."),
+        easyClose = FALSE,
+        footer = tagList(
+          span(
+            actionButton("pass", "Passer l'introduction"),
+            style = "position:relative; float:left;"
+          ),
+          actionButton("next1", "Suivant")
+        ),
+        title = "Indice Distribution de Biodiversité"
       )
     )
   })

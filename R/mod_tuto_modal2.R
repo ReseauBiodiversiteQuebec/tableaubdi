@@ -24,7 +24,15 @@ mod_tuto_modal2_server <- function(id){
     showModal(
       modalDialog(
         div("Voici un exemple de l'indice..."),
-        actionButton("next2", "Suivante")
+        easyClose=FALSE,
+        footer = tagList(
+          span(
+            actionButton("backTo1", "Précédent"),
+            style = "position:relative; float:left;"
+          ),
+          actionButton("next2", "Suivant"),
+        ),
+        title = "Exemple"
       )
     )
 

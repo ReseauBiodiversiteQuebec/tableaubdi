@@ -14,12 +14,24 @@ app_server <- function( input, output, session ) {
   # Small intro to dahsboard
   mod_tuto_modal_server("tuto_modal_ui_1")
 
+  observeEvent(input$pass, {
+    mod_tuto_modal3_server("tuto_modal3_ui_1")
+  })
+
   observeEvent(input$next1, {
     mod_tuto_modal2_server("tuto_modal2_ui_1")
   })
 
+  observeEvent(input$backTo1, {
+    mod_tuto_modal_server("tuto_modal_ui_1")
+  })
+
   observeEvent(input$next2, {
     mod_tuto_modal3_server("tuto_modal3_ui_1")
+  })
+
+  observeEvent(input$backTo2, {
+    mod_tuto_modal2_server("tuto_modal2_ui_1")
   })
 
 
@@ -32,7 +44,8 @@ app_server <- function( input, output, session ) {
 
   observeEvent(input$qc, {
     removeModal()
-    output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_sdm(sdm=prob_occ[[input$species]]))
+    spchoice <- reactive({toString(input$species)})
+    output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_sdm(sdm=prob_occ[[spchoice()]]))
   })
 
 
@@ -42,11 +55,21 @@ app_server <- function( input, output, session ) {
     updateSelectInput(session, "species",
       selected = "all")
     if(input$sel_scale == "all") {
-      output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_sdm(sdm=prob_occ[["all"]]))
+      spchoice <- reactive({toString(input$species)}) # reactive change after map is rendered...
+      output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_sdm(sdm=prob_occ[[spchoice()]]))
     } else {
       output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_map())
     }
   }, ignoreInit = TRUE)
+
+
+  # Sidebar menu choices of species
+
+  #observeEvent(input$species, {
+  #  if(input$sel_scale == "all") {
+  #    output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_sdm(sdm=prob_occ[[input$species]]))
+  #  }
+  #}, ignoreInit = TRUE)
 
 
   # Show plot in modal
