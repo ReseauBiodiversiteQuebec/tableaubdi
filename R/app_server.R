@@ -11,6 +11,9 @@ app_server <- function( input, output, session ) {
   # Render empty map to show in background
   output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_empty())
 
+  # Set reactive values
+  spchoice <- reactive({toString(input$species)})
+  selscale <- reactive({toString(input$sel_scale)})
 
   # Small intro to dashboard
   mod_tuto_modal_server("tuto_modal_ui_1")
@@ -45,7 +48,6 @@ app_server <- function( input, output, session ) {
 
   observeEvent(input$qc, {
     removeModal()
-    spchoice <- reactive({toString(input$species)})
     output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_sdm(sdm=prob_occ[[spchoice()]]))
     mod_bdi_time_series_server("bdi_time_series_ui_1", spchoice)
   })
@@ -55,8 +57,7 @@ app_server <- function( input, output, session ) {
   observeEvent(input$sel_scale, {
     updateSelectInput(session, "species",
       selected = "all")
-    if(input$sel_scale == "all") {
-      spchoice <- reactive({toString(input$species)}) # reactive change after map is rendered...
+    if(selscale() == "all") {
       output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_sdm(sdm=prob_occ[[spchoice()]]))
     } else {
       output$map <- leaflet::renderLeaflet(mapselector::make_leaflet_map())
@@ -66,7 +67,6 @@ app_server <- function( input, output, session ) {
 
   # Sidebar menu choices of species
   observeEvent(input$species, {
-    spchoice <- reactive({toString(input$species)})
     mod_bdi_time_series_server("bdi_time_series_ui_1", spchoice)
   })
 
