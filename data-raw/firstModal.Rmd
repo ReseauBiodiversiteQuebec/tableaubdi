@@ -1,0 +1,19 @@
+---
+title: "Indice de Distribution de la Biodiversité"
+output: 
+  html_document:
+    theme: NULL
+    css: css/style.css
+---
+
+### Indice de Distribution de la Biodiversité
+
+<hr>
+
+L'indice de distribution de biodiversité (IDB) est un indicateur qui permet de suivre les changements de biodiversité qui surviennent au fil du temps à l'échelle du Québec.
+
+
+Plus précisemment, l'IDB mesure les changements dans les aires de distribution des espèces depuis 1990.
+
+
+Les données utilisées pour modéliser les distributions d'espèces proviennent de la base de données Atlas ainsi que du Réseau de suivi de la biodiversité Coleo (éventuellement).

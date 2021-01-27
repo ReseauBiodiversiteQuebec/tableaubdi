@@ -1,0 +1,55 @@
+---
+title: "Interprétation de l'IDB"
+output: 
+  html_document:
+    theme: NULL
+    css: css/style.css
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(fig.width=5, fig.height=3) 
+```
+### Guide pour l'interprétation
+
+<hr>
+
+#### **Interprétation des cartes**
+
+
+Les cartes présentent la variation en probabilité d'occurrence entre la première et la dernière année mesurée pour une espèce choisie.
+
+  - Une différence positive signifie que l'espèce a connu une croissance dans la cellule
+
+  - Une différence négative signifie que l'espèce a connu un déclin dans la cellule
+
+
+Dans le cas où "Toutes les espèces" sont sélectionnées, la carte présente la variation moyenne de toutes les espèces.
+
+<br>
+
+#### **Interprétation de l'indice**
+
+
+L'indicateur permet de représenter le changement moyen dans les aires de distribution des espèces étudiées à l'aide d'un seul chiffre.
+
+Un indicateur ayant une valeur x entre 0 et 1 (excluant 1) signifierait que les aires de distribution des espèces étudiées ont diminué en moyenne de (1-x)%.
+
+  - Par exemple, si l'indicateur a un valeur de 0.8, cela signifie que les aires de distribution des espèces ont diminué en moyenne de 20%.
+
+Un indicateur de 1 signifierait quand à lui que la taille des aires de distribution des espèces n'ont en moyenne pas variées, ce qui ne veut pas dire pour autant qu'il n'y a pas eu de variation!
+
+Un indicateur ayant une valeur x au-dessus de 1 signifierait que la taille des aires de distribution des espèces a varié en moyenne de (x-1)%
+
+  - Par exemple, si l'indicateur a un valeur de 1.2, cela signifie que les aires de distribution des espèces ont augmenté en moyenne de 20%.
+
+L'exemple ci-dessous illustre la variation de l'indicateur de 1990 à 2015 pour toutes les espèces mesurées.
+
+<br>
+
+```{r bdi_example, echo = FALSE, warning = FALSE, fig.align = "center"}
+
+indexTS("all")
+
+```
+
+On peut donc conclure que la taille des aires de distribution des espèces a augmenté en moyenne de 60%.

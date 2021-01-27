@@ -1,0 +1,15 @@
+---
+title: "Bonjour"
+output: 
+  html_document:
+    theme: NULL
+    css: css/style.css
+---
+
+### Sélection de l'échelle spatiale
+
+<hr>
+
+Veuillez sélectionner l'échelle spatiale à laquelle vous souhaitez visualiser l'Indice de Distribution de Biodiversité:
+
+<br>

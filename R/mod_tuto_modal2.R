@@ -23,7 +23,9 @@ mod_tuto_modal2_server <- function(id){
     
     showModal(
       modalDialog(
-        div("Voici un exemple de l'indice..."),
+        includeHTML(
+          rmarkdown::render("data-raw/secondModal.Rmd", output_dir = "../data", quiet = TRUE)
+        ),
         easyClose=FALSE,
         footer = tagList(
           span(
@@ -32,7 +34,7 @@ mod_tuto_modal2_server <- function(id){
           ),
           actionButton("next2", "Suivant"),
         ),
-        title = "Exemple"
+        size = "l"
       )
     )
 

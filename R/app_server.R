@@ -76,7 +76,8 @@ app_server <- function( input, output, session ) {
     showModal(
       modalDialog(
         mod_bdi_time_series_ui("bdi_time_series_ui_1"),
-        title = "Indice Distribution de Biodiversité"
+        title = "Indice Distribution de Biodiversité",
+        size = "l"
       )
     )
   })
