@@ -10,7 +10,7 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic 
     mapselector::tableau_de_bord(
-      mapselector::dash_title(title = "Indice de Distribution de la Biodiversité"), 
+      mapselector::dash_title(title = "Indice Distribution de Biodiversité"), 
       mapselector::dash_sidebar(
         br(),
         selectInput("sel_scale",
