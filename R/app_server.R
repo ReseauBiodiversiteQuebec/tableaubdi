@@ -176,7 +176,7 @@ app_server <- function( input, output, session ) {
           leaflet::clearImages() %>%
           leaflet::clearControls() %>%
           leaflet::addPolygons(data = mapselector::CERQ, color = "darkblue", weight = 1, smoothFactor = 0.5, layerId = ~ NOM_PROV_N, fillColor = "#2571BB",
-            fillOpacity = 0.7, highlightOptions = leaflet::highlightOptions(color = "white",
+            fillOpacity = 0.4, highlightOptions = leaflet::highlightOptions(color = "white",
                                                    weight = 3,
                                                    opacity = 1,
                                                    fillOpacity = 1,
