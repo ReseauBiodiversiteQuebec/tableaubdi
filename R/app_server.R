@@ -171,17 +171,15 @@ app_server <- function( input, output, session ) {
         # Set extent
         ext <- raster::extent(mapselector::CERQ)
 
-        # Set colors for shapefile
-        interp_pal <- leaflet::colorFactor(rcartocolor::carto_pal(12,"Prism"), domain = mapselector::CERQ$NOM_PROV_N)
-
         # Map shapefile
         leaflet::leafletProxy("map") %>%
           leaflet::clearImages() %>%
           leaflet::clearControls() %>%
-          leaflet::addPolygons(data = mapselector::CERQ, color = "darkblue", weight = 1, smoothFactor = 0.5, layerId = ~ NOM_PROV_N, fillColor = ~ interp_pal(NOM_PROV_N),
+          leaflet::addPolygons(data = mapselector::CERQ, color = "darkblue", weight = 1, smoothFactor = 0.5, layerId = ~ NOM_PROV_N, fillColor = "#2571BB",
             fillOpacity = 0.7, highlightOptions = leaflet::highlightOptions(color = "white",
-                                                   weight = 4,
-                                                   # fillOpacity = 0.,
+                                                   weight = 3,
+                                                   opacity = 1,
+                                                   fillOpacity = 1,
                                                    bringToFront = TRUE)) %>%
           leaflet::flyToBounds(ext[1], ext[3], ext[2], ext[4])
 
