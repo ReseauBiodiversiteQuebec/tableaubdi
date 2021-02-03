@@ -24,7 +24,7 @@ mod_tuto_modal3_server <- function(id){
     showModal(
       modalDialog(
         includeHTML(
-          rmarkdown::render("data-raw/thirdModal.Rmd", output_dir = "/data", quiet = TRUE)
+          rmarkdown::render("data-raw/thirdModal.Rmd", output_dir = "data", quiet = TRUE)
         ),
         actionButton("qc", "Tout le Québec"),
         actionButton("pro_nat", "Par provinces naturelles"),
