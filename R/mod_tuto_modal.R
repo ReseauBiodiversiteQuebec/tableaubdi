@@ -23,7 +23,7 @@ mod_tuto_modal_server <- function(id){
     showModal(
       modalDialog(
         includeHTML(
-          rmarkdown::render("data-raw/firstModal.Rmd", output_dir = "../data", quiet = TRUE)
+          rmarkdown::render("data-raw/firstModal.Rmd", output_dir = "/data", quiet = TRUE)
         ),
         easyClose = FALSE,
         footer = tagList(
