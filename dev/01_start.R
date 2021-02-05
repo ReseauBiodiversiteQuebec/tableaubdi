@@ -29,7 +29,7 @@ golem::fill_desc(
 )     
 
 ## Set {golem} options ----
-golem::set_golem_options()
+golem::set_golem_options(golem_wd = here::here())
 
 ## Create Common Files ----
 ## See ?usethis for more information
