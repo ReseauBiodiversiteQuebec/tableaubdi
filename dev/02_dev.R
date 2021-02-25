@@ -29,7 +29,7 @@ golem::add_module( name = "shapefile_event" )
 ## Add helper functions ----
 ## Creates ftc_* and utils_*
 golem::add_fct( "helpers" ) 
-golem::add_utils( "helpers" )
+golem::add_utils( "sdm_map" )
 
 ## External resources
 ## Creates .js and .css files at inst/app/www

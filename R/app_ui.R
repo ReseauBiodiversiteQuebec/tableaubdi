@@ -24,7 +24,7 @@ app_ui <- function(request) {
             setNames(species$taxa, species$sp_fr),
               selected = "all"),
         actionButton("show_index", "Afficher l'indice"),
-        htmlOutput("show_region"),
+        textOutput("show_region"),
         actionButton("return_to_sf", "Précédent")
       ),
       mapselector::dash_tabs(
