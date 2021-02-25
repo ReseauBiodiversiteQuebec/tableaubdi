@@ -6,12 +6,14 @@
 #' @noRd
 app_ui <- function(request) {
   tagList(
+    mapselector::marcel(filename = "firstModal.md"),
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # Your application UI logic 
     mapselector::tableau_de_bord(
       mapselector::dash_title(title = "Indice Distribution de Biodiversité"), 
       mapselector::dash_sidebar(
+        mapselector::badge(text_badge = "Indice Distribution de Biodiversité"),
         br(),
         selectInput("sel_scale",
           "Choisir l'échelle spatiale",
@@ -28,7 +30,10 @@ app_ui <- function(request) {
         actionButton("return_to_sf", "Précédent")
       ),
       mapselector::dash_tabs(
-        mapselector::tab_map(title = "Carte")
+        mapselector::tab_map(title = "Carte"),
+        mapselector::tab_gen(title = "À propos de l'indice", 
+                             outputFunction = mod_tuto_modal2_ui, 
+                             id = "tuto_modal2_ui_1")
       )
     ) 
   )

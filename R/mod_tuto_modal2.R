@@ -10,7 +10,7 @@
 mod_tuto_modal2_ui <- function(id){
   ns <- NS(id)
   tagList(
- 
+    htmlOutput(ns("secondModal"))
   )
 }
     
@@ -21,23 +21,12 @@ mod_tuto_modal2_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
     
-    showModal(
-      modalDialog(
-        includeHTML(
-          rmarkdown::render("data-raw/secondModal.Rmd", output_dir = "data", quiet = TRUE)
-        ),
-        easyClose=FALSE,
-        footer = tagList(
-          span(
-            actionButton("backTo1", "Précédent"),
-            style = "position:relative; float:left;"
-          ),
-          actionButton("next2", "Suivant"),
-        ),
-        size = "l"
-      )
-    )
-
+    rmarkdown::render("data-raw/secondModal.Rmd",
+                      output_dir = "inst/app/www", 
+                      quiet = TRUE)
+    
+    output$secondModal <- renderUI(includeHTML("inst/app/www/secondModal.html"))
+        
   })
 }
     

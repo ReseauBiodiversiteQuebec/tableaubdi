@@ -1,9 +1,5 @@
 ---
 title: "Indice de Distribution de la Biodiversité"
-output: 
-  html_document:
-    theme: NULL
-    css: css/style.css
 ---
 
 ### Indice de Distribution de la Biodiversité
