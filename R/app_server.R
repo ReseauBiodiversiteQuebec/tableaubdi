@@ -15,28 +15,28 @@ app_server <- function( input, output, session ) {
   spchoice <- reactive({toString(input$species)})
   selscale <- reactive({toString(input$sel_scale)})
 
-  # Small intro to dashboard
-  mod_tuto_modal_server("tuto_modal_ui_1")
-
-  observeEvent(input$pass, {
-    mod_tuto_modal3_server("tuto_modal3_ui_1")
-  })
-
-  observeEvent(input$next1, {
-    mod_tuto_modal2_server("tuto_modal2_ui_1")
-  })
-
-  observeEvent(input$backTo1, {
-    mod_tuto_modal_server("tuto_modal_ui_1")
-  })
-
-  observeEvent(input$next2, {
-    mod_tuto_modal3_server("tuto_modal3_ui_1")
-  })
-
-  observeEvent(input$backTo2, {
-    mod_tuto_modal2_server("tuto_modal2_ui_1")
-  })
+#  # Small intro to dashboard
+#  mod_tuto_modal_server("tuto_modal_ui_1")
+#
+#  observeEvent(input$pass, {
+#    mod_tuto_modal3_server("tuto_modal3_ui_1")
+#  })
+#
+#  observeEvent(input$next1, {
+#    mod_tuto_modal2_server("tuto_modal2_ui_1")
+#  })
+#
+#  observeEvent(input$backTo1, {
+#    mod_tuto_modal_server("tuto_modal_ui_1")
+#  })
+#
+#  observeEvent(input$next2, {
+#    mod_tuto_modal3_server("tuto_modal3_ui_1")
+#  })
+#
+#  observeEvent(input$backTo2, {
+#    mod_tuto_modal2_server("tuto_modal2_ui_1")
+#  })
 
 
   # Choices of scales at which we want to visualize the index
