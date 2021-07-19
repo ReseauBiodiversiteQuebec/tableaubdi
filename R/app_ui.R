@@ -25,27 +25,7 @@ app_ui <- function(request) {
               selected = "all"),
         actionButton("show_index", "Afficher l'indice"),
         htmlOutput("show_region"),
-        actionButton("return_to_sf", "Précédent"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO"),
-        h1("GO HABS GO")
+        actionButton("return_to_sf", "Précédent")
       ),
       mapselector::dash_tabs(
         mapselector::tab_map(title = "Carte")
