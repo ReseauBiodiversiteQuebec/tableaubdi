@@ -11,7 +11,7 @@ app_ui <- function(request) {
     # Your application UI logic 
     mapselector::tableau_de_bord(
       mapselector::dash_sidebar(
-      	mapselector::dash_title(title = "Indice Distribution de Biodiversité",icon="nature-collection-029-forest"),
+      	mapselector::dash_title(title = "Indice Distribution de Biodiversité",icon="nature-cute-029-forest"),
         br(),
         selectInput("sel_scale",
           "Choisir l'échelle spatiale",
